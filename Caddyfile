@@ -1,0 +1,5 @@
+# Replace proxy.example.com with a domain you control.
+proxy.example.com {
+    encode gzip
+    reverse_proxy web-proxy:3000
+}
