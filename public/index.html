@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A simple web proxy interface">
+  <title>Web Proxy</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="mark">WEB<span>PROXY</span></div>
+    <h1>Browse the web</h1>
+    <p class="sub">Enter a website address to open it through this proxy.</p>
+    <form id="proxy-form">
+      <label class="sr-only" for="url">Website address</label>
+      <input id="url" name="url" type="url" placeholder="https://example.com" autocomplete="url" required>
+      <button type="submit">Go <span aria-hidden="true">↗</span></button>
+    </form>
+    <p id="error" role="status" aria-live="polite"></p>
+    <div class="notice"><strong>Public service:</strong> Requests are rate-limited. Do not enter passwords or sensitive information. Some sites may not work because of browser security restrictions.</div>
+    <footer>Self-hosted web proxy · HTTP/HTTPS only</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
