@@ -1,0 +1,36 @@
+services:
+  web-proxy:
+    build: .
+    container_name: web-proxy
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+      MAX_RESPONSE_BYTES: 8388608
+      REQUEST_TIMEOUT_MS: 15000
+    expose:
+      - "3000"
+    networks:
+      - proxy-net
+
+  caddy:
+    image: caddy:2
+    container_name: proxy-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web-proxy
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+
+volumes:
+  caddy_data:
+  caddy_config:
