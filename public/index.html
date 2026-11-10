@@ -12,7 +12,7 @@
     <div class="mark">WEB<span>PROXY</span></div>
     <h1>Browse the web</h1>
     <p class="sub">Enter a website address to open it through this proxy.</p>
-    <form id="proxy-form">
+    <form id="proxy-form" action="/proxy" method="get">
       <label class="sr-only" for="url">Website address</label>
       <input id="url" name="url" type="text" inputmode="url" placeholder="https://example.com" autocomplete="url" required>
       <button type="submit">Go <span aria-hidden="true">↗</span></button>
